@@ -1,0 +1,24 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: 11
+  
+  pre-build:
+    commands:
+      - echo skipped on `date`
+  
+  build:
+    commands:
+      - echo Maven Build on `date`
+      - java -version
+      - mvn clean package
+
+  post_build:
+    commands:
+      - echo Build completed on `date`
+
+artifacts:
+  files:
+    - target/rest-service.jar
